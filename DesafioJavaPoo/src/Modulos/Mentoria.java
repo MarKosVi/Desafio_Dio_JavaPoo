@@ -3,26 +3,11 @@ package Modulos;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-public class Mentoria {
-	private String titulo;
-	private String descricao;
+public class Mentoria extends Conteudo {
+
 	private LocalDate data;
 	
 	
-	
-	
-	public String getTitulo() {
-		return titulo;
-	}
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}
-	public String getDescricao() {
-		return descricao;
-	}
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
 	public LocalDate getData() {
 		return data;
 	}
@@ -32,7 +17,13 @@ public class Mentoria {
 	
 	public String toString() {
 		 DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		return "["+this.titulo+" - "+this.descricao+" - "+this.data.format(dateFormat)+"]";
+		return "["+this.getTitulo()+" - "+this.getDescricao()+" - "+this.data.format(dateFormat)+" - "+this.calcularXp()+"]";
+	}
+	
+	@Override
+	public double calcularXp() {
+		// TODO Auto-generated method stub
+		return xp_padrao+20;
 	}
 	
 }
